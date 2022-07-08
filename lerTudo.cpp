@@ -63,7 +63,7 @@ void lerRegistros(char *file_name)
 
 int main()
 {
-	char *file_name = "paste.bin";
+	char * file_name = "paste.bin";
 	lerRegistros(file_name);
     return 0;
 }
