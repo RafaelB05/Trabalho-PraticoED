@@ -16,6 +16,7 @@ struct Call_911
 	char twp[40];
 	char addr[75];
 	int e;
+	bool flag;
 };
 
 void lerRegistros(char *file_name)
@@ -37,20 +38,28 @@ void lerRegistros(char *file_name)
 
 		for ( int i = 0; i < numero_registros; i++ )
 		{
-			paste.seekg(i * sizeof(Call_911), paste.beg);
-			paste.read((char*)(&registros[0]), sizeof(Call_911));         
-			
-			cout << registros[0].id << endl;
-			cout << registros[0].lat << endl;
-			cout << registros[0].lgn << endl;
-			cout << registros[0].desc << endl;
-			cout << registros[0].zip << endl;
-			cout << registros[0].title << endl;
-			cout << registros[0].timeStamp << endl;
-			cout << registros[0].twp << endl;
-			cout << registros[0].addr << endl;
-			cout << registros[0].e << endl;
-			cout << "- - - - - - - - - - - - " << endl;
+			if (registros[0].flag == 1)
+			{
+				paste.seekg(i * sizeof(Call_911), paste.beg);
+				paste.read((char*)(&registros[0]), sizeof(Call_911));         
+				
+				cout << registros[0].id << endl;
+				cout << registros[0].lat << endl;
+				cout << registros[0].lgn << endl;
+				cout << registros[0].desc << endl;
+				cout << registros[0].zip << endl;
+				cout << registros[0].title << endl;
+				cout << registros[0].timeStamp << endl;
+				cout << registros[0].twp << endl;
+				cout << registros[0].addr << endl;
+				cout << registros[0].e << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
+			else
+			{
+				cout << "ARQUIVO DELETADO!" << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
 		}
     }
     else
@@ -63,7 +72,7 @@ void lerRegistros(char *file_name)
 
 int main()
 {
-	char * file_name = "paste.bin";
+	char *file_name = "paste.bin";
 	lerRegistros(file_name);
     return 0;
 }
