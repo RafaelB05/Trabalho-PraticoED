@@ -16,6 +16,7 @@ struct Call_911
 	char twp[40];
 	char addr[75];
 	int e;
+	bool flag;
 };
 
 void lerPos(char *file_name, int p1, int p2)
@@ -39,25 +40,33 @@ void lerPos(char *file_name, int p1, int p2)
 		{
 			paste.seekg(i * sizeof(Call_911), paste.beg);
 			paste.read((char*)(&registros[0]), sizeof(Call_911));         
-			
-			cout << registros[0].id << endl;
-			cout << registros[0].lat << endl;
-			cout << registros[0].lgn << endl;
-			cout << registros[0].desc << endl;
-			cout << registros[0].zip << endl;
-			cout << registros[0].title << endl;
-			cout << registros[0].timeStamp << endl;
-			cout << registros[0].twp << endl;
-			cout << registros[0].addr << endl;
-			cout << registros[0].e << endl;
-			cout << "- - - - - - - - - - - - " << endl;
+			if (registros[0].flag == 1)
+			{
+				cout << registros[0].id << endl;
+				cout << registros[0].lat << endl;
+				cout << registros[0].lgn << endl;
+				cout << registros[0].desc << endl;
+				cout << registros[0].zip << endl;
+				cout << registros[0].title << endl;
+				cout << registros[0].timeStamp << endl;
+				cout << registros[0].twp << endl;
+				cout << registros[0].addr << endl;
+				cout << registros[0].e << endl;
+				cout << registros[0].flag << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
+			else
+			{
+				cout << "ARQUIVO DELETADO!" << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
 		}
     }
     else
     {
         cout << "Erro na leitura do arquivo!";
     }
-
+	paste.close();
     return;
 }
 
