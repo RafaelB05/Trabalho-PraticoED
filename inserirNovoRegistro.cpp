@@ -74,16 +74,44 @@ int main()
 	cin >> New.lgn;
 	cin.ignore();
 	getline(cin,palavra);
-	while(i < sizeof(palavra))
+	while(i <= sizeof(New.desc))
 	{
 		New.desc[i] = palavra[i];
 		i++; 
 	}
 	cin >> New.zip;
-	//cin >> New.title;
-	//cin >> New.timeStamp;
-	//cin >> New.twp;
-	//cin >> New.addr;
+	cin.ignore();
+	getline(cin,palavra);
+	i = 0;
+	while(i <= sizeof(New.title))
+	{
+		New.title[i] = palavra[i];
+		i++; 
+	}
+	cin.ignore();
+	getline(cin,palavra);
+	i = 0;
+	while(i <= sizeof(New.timeStamp))
+	{
+		New.timeStamp[i] = palavra[i];
+		i++; 
+	}
+	cin.ignore();
+	getline(cin,palavra);
+	i = 0;
+	while(i <= sizeof(New.twp))
+	{
+		New.twp[i] = palavra[i];
+		i++; 
+	}
+	cin.ignore();
+	getline(cin,palavra);
+	i = 0;
+	while(i <= sizeof(New.addr))
+	{
+		New.addr[i] = palavra[i];
+		i++; 
+	}
 	cin >> New.e;
 	New.flag = true;
 
