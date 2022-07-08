@@ -18,8 +18,10 @@ struct Call_911
 	int e;
 };
 
-void inserirNovoRegistro(int posicaoInsercao){
-    
+void inserirNovoRegistro(int posicaoInsercao)
+{
+    //331740
+    //330000
     ifstream paste;
     paste.open("paste.bin", std::ios::binary);
     paste.seekg(0, paste.end);
@@ -29,18 +31,17 @@ void inserirNovoRegistro(int posicaoInsercao){
 
     Call_911 *registros = new Call_911[1];
 
-    for(int i = numero_registros; i > posicaoInsercao;i--)
-    {
-        paste.seekg(i * sizeof(Call_911),paste.beg);
-        paste.read((char*)(&registros[0]), sizeof(Call_911));
-        cout << registros[0].id << endl;
-        //paste.seekg(i*sizeof(Call_911),paste.beg);
-        //paste.write((const char *)(&registros[0]),sizeof(Call_911)); 
-    }
+		for ( int i = numero_registros - 1; i > posicaoInsercao - 1; i-- )
+		{
+			paste.seekg(i * sizeof(Call_911), paste.beg);
+			paste.read((char*)(&registros[0]), sizeof(Call_911));	
+			cout << registros[0].id << endl;
+        }
 }
 
 
-int main(){
+int main()
+{
 
     int posicaoInsercao;
 
