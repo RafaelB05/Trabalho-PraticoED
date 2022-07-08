@@ -83,37 +83,6 @@ int main()
 
     csv.close();
 	arq.close();
-	
-	/*ifstream arq2("paste_copy.bin");
-	
-	if(arq2)
-	{
-		arq2.seekg(0, arq2.end);
-		int tamArq = arq2.tellg();
-		arq2.seekg(0, arq2.beg);
-		int tam = tamArq/sizeof(Call_911);
-		//cout << tamArq << endl;
-		//cout << tam << endl;
-		Call_911 paste[tam];
-		arq2.read((char *) (&paste), tamArq);
-		for(int i=0; i<tam; i++)
-		{
-			cout << paste[i].id << endl;
-			cout << paste[i].lat << endl;
-			cout << paste[i].lgn << endl;
-			cout << paste[i].desc << endl;
-			cout << paste[i].zip << endl;
-			cout << paste[i].title << endl;
-			cout << paste[i].timeStamp << endl;
-			cout << paste[i].twp << endl;
-			cout << paste[i].addr << endl;
-			cout << paste[i].e << endl;
-			cout << "- - - - - - - - - - - - " << endl;
-		}
-		arq2.close();
-	}
-    //system("pause");*/
-
 	cout << "Sucesso";
     return 0;
 }
