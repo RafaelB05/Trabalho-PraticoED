@@ -64,15 +64,21 @@ void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 int main()
 {
 
-    int posicaoInsercao;
-
+    int posicaoInsercao,i = 0;
+	string palavra;
 	Call_911 New;
 
 	cin >> posicaoInsercao;
 
 	cin >> New.lat;
 	cin >> New.lgn;
-	//cin >> New.desc;
+	cin.ignore();
+	getline(cin,palavra);
+	while(i < sizeof(palavra))
+	{
+		New.desc[i] = palavra[i];
+		i++; 
+	}
 	cin >> New.zip;
 	//cin >> New.title;
 	//cin >> New.timeStamp;
