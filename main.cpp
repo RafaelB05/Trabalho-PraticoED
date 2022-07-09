@@ -4,7 +4,6 @@ using namespace std;
 
 int main()
 {
-    char *file_name = "paste.bin";
     int p1,p2;
     char t;
     int posicaoInsercao;
@@ -12,6 +11,7 @@ int main()
     Call_911 Novo;
     int i = 0;
     int pos0;
+
 
     cin >> t;
     if(t == 'a')
@@ -34,7 +34,7 @@ int main()
         cin >> Novo.lgn;
         cin.ignore();
         getline(cin,palavra);
-        while(i <= sizeof(Novo.desc))
+        while(i <= int(sizeof(Novo.desc)))
         {
             Novo.desc[i] = palavra[i];
             i++; 
@@ -43,28 +43,28 @@ int main()
         cin.ignore();
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.title))
+        while(i <= int(sizeof(Novo.title)))
         {
             Novo.title[i] = palavra[i];
             i++; 
         }
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.timeStamp))
+        while(i <= int(sizeof(Novo.timeStamp)))
         {
             Novo.timeStamp[i] = palavra[i];
             i++; 
         }
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.twp))
+        while(i <= int(sizeof(Novo.twp)))
         {
             Novo.twp[i] = palavra[i];
             i++; 
         }
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.addr))
+        while(i <= int(sizeof(Novo.addr)))
         {
             Novo.addr[i] = palavra[i];
             i++; 
@@ -85,7 +85,7 @@ int main()
         cin >> Novo.lgn;
         cin.ignore();
         getline(cin,palavra);
-        while(i <= sizeof(Novo.desc))
+        while(i <= int(sizeof(Novo.desc)))
         {
             Novo.desc[i] = palavra[i];
             i++; 
@@ -94,28 +94,28 @@ int main()
         cin.ignore();
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.title))
+        while(i <= int(sizeof(Novo.title)))
         {
             Novo.title[i] = palavra[i];
             i++; 
         }
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.timeStamp))
+        while(i <= int(sizeof(Novo.timeStamp)))
         {
             Novo.timeStamp[i] = palavra[i];
             i++; 
         }
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.twp))
+        while(i <= int(sizeof(Novo.twp)))
         {
             Novo.twp[i] = palavra[i];
             i++; 
         }
         getline(cin,palavra);
         i = 0;
-        while(i <= sizeof(Novo.addr))
+        while(i <= int(sizeof(Novo.addr)))
         {
             Novo.addr[i] = palavra[i];
             i++; 
@@ -123,7 +123,7 @@ int main()
         cin >> Novo.e;
         Novo.flag = true;
 
-        alterarDados(file_name, pos0, Novo);
+        alterarDados(pos0, Novo);
     }
     
     

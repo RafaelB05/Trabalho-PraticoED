@@ -60,12 +60,6 @@ void lerPos(int p1, int p2)
 
     if ( paste )
     {
-        paste.seekg(0, paste.end);
-        int tam = paste.tellg();
-        paste.seekg(0, paste.beg);
-
-        int numero_registros = tam / sizeof(Call_911);
-
         Call_911 *registros = new Call_911[1];
 
 		paste.seekg(p1, paste.beg);
@@ -103,7 +97,7 @@ void lerPos(int p1, int p2)
     return;
 }
 
-void alterarDados(char *file_name,int pos0, Call_911 New)
+void alterarDados(int pos0, Call_911 New)
 {
 
     fstream paste;
@@ -111,12 +105,6 @@ void alterarDados(char *file_name,int pos0, Call_911 New)
 
     if ( paste )
     {
-        paste.seekg(0, paste.end);
-        int tam = paste.tellg();
-        paste.seekg(0, paste.beg);
-
-        int numero_registros = tam / sizeof(Call_911);
-
         Call_911 *registros = new Call_911[1];
 
 		paste.seekg(pos0, paste.beg);
@@ -170,11 +158,6 @@ void alterarPos(int p1, int p2)
 
     fstream paste;
 	paste.open("paste.bin", fstream::in | fstream::out | fstream::binary);
-
-    paste.seekg(0, paste.end);
-    int tam = paste.tellg();
-    paste.seekg(0, paste.beg);
-    int numero_registros = tam / sizeof(Call_911);
 
     Call_911 *registros = new Call_911[1];
     Call_911 *registros0 = new Call_911[1];
@@ -263,12 +246,6 @@ void deletar(int p_delete)
 
     if ( paste )
     {
-        paste.seekg(0, paste.end);
-        int tam = paste.tellg();
-        paste.seekg(0, paste.beg);
-
-        int numero_registros = tam / sizeof(Call_911);
-
         Call_911 *registros = new Call_911[1];
 
 		paste.seekg(p_delete, paste.beg);
