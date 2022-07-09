@@ -125,36 +125,43 @@ void alterarDados(int pos0, Call_911 New)
         paste.seekg(pos0 * sizeof(Call_911), paste.beg);
         paste.read((char*)(&registros[0]), sizeof(Call_911));
 
-            cout << registros[0].id << endl;
-            cout << registros[0].lat << endl;
-            cout << registros[0].lgn << endl;
-            cout << registros[0].desc << endl;
-            cout << registros[0].zip << endl;
-            cout << registros[0].title << endl;
-            cout << registros[0].timeStamp << endl;
-            cout << registros[0].twp << endl;
-            cout << registros[0].addr << endl;
-            cout << registros[0].e << endl;
+        if (registros[0].flag == 1)
+        {
+                cout << registros[0].id << endl;
+                cout << registros[0].lat << endl;
+                cout << registros[0].lgn << endl;
+                cout << registros[0].desc << endl;
+                cout << registros[0].zip << endl;
+                cout << registros[0].title << endl;
+                cout << registros[0].timeStamp << endl;
+                cout << registros[0].twp << endl;
+                cout << registros[0].addr << endl;
+                cout << registros[0].e << endl;
+                cout << "- - - - - - - - - - - - " << endl;
+            New.id = pos0;
+            paste.seekp(pos0 * sizeof(Call_911), paste.beg);
+            paste.write((const char *) (&New), sizeof(Call_911));
+
+            paste.seekg(pos0 * sizeof(Call_911), paste.beg);
+            paste.read((char*)(&registros[0]), sizeof(Call_911));
+
+                cout << registros[0].id << endl;
+                cout << registros[0].lat << endl;
+                cout << registros[0].lgn << endl;
+                cout << registros[0].desc << endl;
+                cout << registros[0].zip << endl;
+                cout << registros[0].title << endl;
+                cout << registros[0].timeStamp << endl;
+                cout << registros[0].twp << endl;
+                cout << registros[0].addr << endl;
+                cout << registros[0].e << endl;
+                cout << "- - - - - - - - - - - - " << endl;
+        }
+        else
+        {
+            cout << "ARQUIVO DELETADO!" << endl;
             cout << "- - - - - - - - - - - - " << endl;
-
-        New.id = pos0;
-        paste.seekp(pos0 * sizeof(Call_911), paste.beg);
-        paste.write((const char *) (&New), sizeof(Call_911));
-
-        paste.seekg(pos0 * sizeof(Call_911), paste.beg);
-        paste.read((char*)(&registros[0]), sizeof(Call_911));
-
-            cout << registros[0].id << endl;
-            cout << registros[0].lat << endl;
-            cout << registros[0].lgn << endl;
-            cout << registros[0].desc << endl;
-            cout << registros[0].zip << endl;
-            cout << registros[0].title << endl;
-            cout << registros[0].timeStamp << endl;
-            cout << registros[0].twp << endl;
-            cout << registros[0].addr << endl;
-            cout << registros[0].e << endl;
-            cout << "- - - - - - - - - - - - " << endl;
+        }
 
     }
     else

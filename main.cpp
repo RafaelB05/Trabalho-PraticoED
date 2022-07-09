@@ -25,34 +25,36 @@ int main()
             break;
         
         case 2:
-            cout << "Insira a posicao de inicio e o final da leitura: ";
-            cin >> posInicio >> posFim;
+            cout << "Insira a posicao inicial: ";
+            cin >> posInicio;
+            cout << "Insira a posicao final: ";
+            cin >> posFim;
             lerPos(posInicio,posFim);
             break;
         case 3:
-            cout << "Insira a posicao dos dados que deseja trocar de posicao:";
+            cout << "Insira a posicao dos dados que deseja trocar de posicao: ";
             cin >> posInicio >> posFim;     
             alterarPos(posInicio,posFim);
             break;
         case 4:
-            cout << "Insira a posicao em que deseja inserir um novo registro:";
+            cout << "Insira a posicao em que deseja inserir um novo registro: ";
             cin >> posicaoInsercao;
-            cout << "Insira a latitude:";
+            cout << "Insira a latitude: ";
             cin >> Novo.lat;
-            cout << "Insira a longitude:";
+            cout << "Insira a longitude: ";
             cin >> Novo.lgn;
             cin.ignore();
-            cout << "Preencha a descricao:";
+            cout << "Preencha a descricao: ";
             getline(cin,palavra);
             while(posCharVet <= int(sizeof(Novo.desc)))
             {
                 Novo.desc[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o zip:";
+            cout << "Preencha o zip: ";
             cin >> Novo.zip;
             cin.ignore();
-            cout << "Preencha o titulo:";
+            cout << "Preencha o titulo: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.title)))
@@ -60,7 +62,7 @@ int main()
                 Novo.title[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o timeStemp:";
+            cout << "Preencha o timeStemp: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.timeStamp)))
@@ -68,7 +70,7 @@ int main()
                 Novo.timeStamp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o twp:";
+            cout << "Preencha o twp: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.twp)))
@@ -76,7 +78,7 @@ int main()
                 Novo.twp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o endereco:";
+            cout << "Preencha o endereco: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.addr)))
@@ -84,7 +86,7 @@ int main()
                 Novo.addr[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << " Insira o E";
+            cout << " Insira o E: ";
             cin >> Novo.e;
             Novo.flag = true;
 
@@ -92,24 +94,24 @@ int main()
             break;
         case 5:
 
-            cout << "Posicao que deseja alterar os dados:";
+            cout << "Posicao que deseja alterar os dados: ";
             cin >> pos0;
-            cout << "Preencha a nova latitude:";
+            cout << "Preencha a nova latitude: ";
             cin >> Novo.lat;
-            cout << "Preencha a nova longitude:";
+            cout << "Preencha a nova longitude: ";
             cin >> Novo.lgn;
             cin.ignore();
-            cout << "Preencha a nova descricao:";
+            cout << "Preencha a nova descricao: ";
             getline(cin,palavra);
             while(posCharVet <= int(sizeof(Novo.desc)))
             {
                 Novo.desc[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o novo zip:";
+            cout << "Preencha o novo zip: ";
             cin >> Novo.zip;
             cin.ignore();
-            cout << "Preencha o novo titulo:";
+            cout << "Preencha o novo titulo: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.title)))
@@ -117,7 +119,7 @@ int main()
                 Novo.title[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o novo timeStamp:";
+            cout << "Preencha o novo timeStamp: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.timeStamp)))
@@ -125,7 +127,7 @@ int main()
                 Novo.timeStamp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o novo twp:";
+            cout << "Preencha o novo twp: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.twp)))
@@ -133,7 +135,7 @@ int main()
                 Novo.twp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << "Preencha o novo endereco:";
+            cout << "Preencha o novo endereco: ";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.addr)))
@@ -141,6 +143,7 @@ int main()
                 Novo.addr[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o novo E: ";
             cin >> Novo.e;
             Novo.flag = true;
 
