@@ -24,7 +24,7 @@ int main()
 {
 
     string a;
-	char delimitador = ',';
+	char delimitador = ','; // Vria de acordo com a posicao na linha do csv, quando se atinge o nono campo é trocado para um \n
 	int cont = 0;
 	Call_911 paste;
 
@@ -69,6 +69,8 @@ int main()
 			strcpy(paste.addr, a.c_str());
 			delimitador = '\n';
 			break;
+		 // Sempre que é atingido o fim da linha
+		 // o caracter delimitador do getline é resetado e a linha é gravada no binario 	
 		case 10:
 			paste.e = stoi(a);
 			paste.flag = true;
