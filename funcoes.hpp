@@ -29,6 +29,4 @@ void alterarPos(int p1, int p2);
 void inserirNovoRegistro(int posicaoInsercao, Call_911 New);
 void deletar(int p_delete);
 
-
-
 #endif

@@ -32,8 +32,10 @@ int main()
             lerPos(posInicio,posFim);
             break;
         case 3:
-            cout << "Insira a posicao dos dados que deseja trocar de posicao: ";
-            cin >> posInicio >> posFim;     
+            cout << "Insira a posicao do primeiro dado que deseja trocar:";
+            cin >> posInicio;
+            cout << "Insira a posicao do segundo dado que deseja trocar:";   
+            cin >> posFim; 
             alterarPos(posInicio,posFim);
             break;
         case 4:
@@ -86,7 +88,7 @@ int main()
                 Novo.addr[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
-            cout << " Insira o E: ";
+            cout << "Insira o E: ";
             cin >> Novo.e;
             Novo.flag = true;
 
@@ -145,7 +147,6 @@ int main()
             }
             cout << "Preencha o novo E: ";
             cin >> Novo.e;
-            Novo.flag = true;
 
             alterarDados(pos0, Novo);
             break;
@@ -153,6 +154,7 @@ int main()
             cout << "Insira a posicao que deseja excluir: ";
             cin >> posInicio;
             deletar(posInicio);
+            break;
 
         case 7:
             controle = false;

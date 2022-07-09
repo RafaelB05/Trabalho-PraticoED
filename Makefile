@@ -1,14 +1,16 @@
-all:	funcoes.o main.o
-	g++ -o main funcoes.o main.o
+all: main csvToBinary
 
-pessoa.o:	funcoes.cpp funcoes.hpp	
-	g++ -c funcoes.cpp
+csvToBinary: csvToBinary.o
+	g++ csvToBinary.o -o csvToBinary
 
-main.o:: main.cpp funcoes.hpp
+csvToBinary.o: csvToBinary.cpp;
+	g++ -c csvToBinary.cpp
+
+main: main.o funcoes.o
+	g++ main.o funcoes.o -o main
+
+main.o:: main.cpp
 	g++ -c main.cpp
 
-clean:
-	rm -rf *.0
-
-vai:
-	./main
+funcoes.o:	funcoes.cpp
+	g++ -c funcoes.cpp
