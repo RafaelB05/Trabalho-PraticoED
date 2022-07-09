@@ -26,10 +26,10 @@ struct Call_911
 
 void lerRegistros(char *file_name);
 void lerPos(char *file_name, int p1, int p2);
-//void alterarDados(char *file_name, int pos0,Call_911 New)
+void alterarDados(char *file_name, int pos0,Call_911 New);
 void alterarPos(int p1, int p2);
-//void inserirNovoRegistro(int posicaoInsercao, Call_911 New);
-void deletar(char *file_name, int p_delete);
+void inserirNovoRegistro(int posicaoInsercao, Call_911 New);
+void deletar(int p_delete);
 
 
 
