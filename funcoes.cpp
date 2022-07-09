@@ -49,7 +49,7 @@ void lerRegistros(char *file_name)
     {
         cout << "Erro na leitura do arquivo!";
     }
-
+    paste.close();
     return;
 }
 
@@ -86,7 +86,6 @@ void lerPos(char *file_name, int p1, int p2)
 				cout << registros[0].twp << endl;
 				cout << registros[0].addr << endl;
 				cout << registros[0].e << endl;
-				cout << registros[0].flag << endl;
 				cout << "- - - - - - - - - - - - " << endl;
 			}
 			else
@@ -104,14 +103,8 @@ void lerPos(char *file_name, int p1, int p2)
     return;
 }
 
-
-/*
-void alterarDados(char *file_name,int pos0,Call_911 New)
+void alterarDados(char *file_name,int pos0, Call_911 New)
 {
-    
-    int i = 0;
-    string palavra;
-    Call_911 New;
 
     fstream paste;
 	paste.open("paste.bin",fstream::in | fstream::out | fstream::binary);
@@ -169,9 +162,8 @@ void alterarDados(char *file_name,int pos0,Call_911 New)
     }
     cout << "sucesso" << endl;
     paste.close();
-    return;
 }
-*/
+
 
 void alterarPos(int p1, int p2)
 {
@@ -233,7 +225,7 @@ void alterarPos(int p1, int p2)
 
 	paste.close();
 }
-/*
+
 void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 {
     //331740
@@ -254,17 +246,6 @@ void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 		paste.seekg(i * sizeof(Call_911), paste.beg);
 		paste.read((char*)(&registros[0]), sizeof(Call_911));
 		registros[0].id += 1;
-		cout << registros[0].id << endl;
-		cout << registros[0].lat << endl;
-		cout << registros[0].lgn << endl;
-		cout << registros[0].desc << endl;
-		cout << registros[0].zip << endl;
-		cout << registros[0].title << endl;
-		cout << registros[0].timeStamp << endl;
-		cout << registros[0].twp << endl;
-		cout << registros[0].addr << endl;
-		cout << registros[0].e << endl;
-		cout << "- - - - - - - - - - - - " << endl;
 		paste.seekp((i + 1) * sizeof(Call_911), paste.beg);
 		paste.write((const char *) (&registros[0]), sizeof(Call_911));
 	}
@@ -274,8 +255,8 @@ void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 
 	paste.close();
 }
-*/
-void deletar(char *file_name, int p_delete)
+
+void deletar(int p_delete)
 {
     fstream paste;
 	paste.open("paste.bin",fstream::in | fstream::out | fstream::binary);
