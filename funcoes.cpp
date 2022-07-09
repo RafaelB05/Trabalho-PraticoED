@@ -1,0 +1,321 @@
+#include "funcoes.hpp"
+
+using namespace std;
+
+void lerRegistros(char *file_name)
+{
+    ifstream paste;
+    paste.open(file_name, ios::binary);
+
+    if (paste)
+    {
+        paste.seekg(0, paste.end);
+        int tam = paste.tellg();
+        paste.seekg(0, paste.beg);
+
+        int numero_registros = tam / sizeof(Call_911);
+
+        Call_911 *registros = new Call_911[1];
+
+		paste.seekg(0, paste.beg);
+
+		for ( int i = 0; i < numero_registros; i++ )
+		{
+			if (registros[0].flag == 1)
+			{
+				paste.seekg(i * sizeof(Call_911), paste.beg);
+				paste.read((char*)(&registros[0]), sizeof(Call_911));         
+				
+				cout << registros[0].id << endl;
+				cout << registros[0].lat << endl;
+				cout << registros[0].lgn << endl;
+				cout << registros[0].desc << endl;
+				cout << registros[0].zip << endl;
+				cout << registros[0].title << endl;
+				cout << registros[0].timeStamp << endl;
+				cout << registros[0].twp << endl;
+				cout << registros[0].addr << endl;
+				cout << registros[0].e << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
+			else
+			{
+				cout << "ARQUIVO DELETADO!" << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
+		}
+    }
+    else
+    {
+        cout << "Erro na leitura do arquivo!";
+    }
+
+    return;
+}
+
+void lerPos(char *file_name, int p1, int p2)
+{
+    ifstream paste;
+    paste.open(file_name, ios::binary);
+
+    if ( paste )
+    {
+        paste.seekg(0, paste.end);
+        int tam = paste.tellg();
+        paste.seekg(0, paste.beg);
+
+        int numero_registros = tam / sizeof(Call_911);
+
+        Call_911 *registros = new Call_911[1];
+
+		paste.seekg(p1, paste.beg);
+
+		for ( int i = p1; i < p2 + 1; i++ )
+		{
+			paste.seekg(i * sizeof(Call_911), paste.beg);
+			paste.read((char*)(&registros[0]), sizeof(Call_911));         
+			if (registros[0].flag == 1)
+			{
+				cout << registros[0].id << endl;
+				cout << registros[0].lat << endl;
+				cout << registros[0].lgn << endl;
+				cout << registros[0].desc << endl;
+				cout << registros[0].zip << endl;
+				cout << registros[0].title << endl;
+				cout << registros[0].timeStamp << endl;
+				cout << registros[0].twp << endl;
+				cout << registros[0].addr << endl;
+				cout << registros[0].e << endl;
+				cout << registros[0].flag << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
+			else
+			{
+				cout << "ARQUIVO DELETADO!" << endl;
+				cout << "- - - - - - - - - - - - " << endl;
+			}
+		}
+    }
+    else
+    {
+        cout << "Erro na leitura do arquivo!";
+    }
+	paste.close();
+    return;
+}
+
+
+/*
+void alterarDados(char *file_name,int pos0,Call_911 New)
+{
+    
+    int i = 0;
+    string palavra;
+    Call_911 New;
+
+    fstream paste;
+	paste.open("paste.bin",fstream::in | fstream::out | fstream::binary);
+
+    if ( paste )
+    {
+        paste.seekg(0, paste.end);
+        int tam = paste.tellg();
+        paste.seekg(0, paste.beg);
+
+        int numero_registros = tam / sizeof(Call_911);
+
+        Call_911 *registros = new Call_911[1];
+
+		paste.seekg(pos0, paste.beg);
+
+        paste.seekg(pos0 * sizeof(Call_911), paste.beg);
+        paste.read((char*)(&registros[0]), sizeof(Call_911));
+
+            cout << registros[0].id << endl;
+            cout << registros[0].lat << endl;
+            cout << registros[0].lgn << endl;
+            cout << registros[0].desc << endl;
+            cout << registros[0].zip << endl;
+            cout << registros[0].title << endl;
+            cout << registros[0].timeStamp << endl;
+            cout << registros[0].twp << endl;
+            cout << registros[0].addr << endl;
+            cout << registros[0].e << endl;
+            cout << "- - - - - - - - - - - - " << endl;
+
+        New.id = pos0;
+        paste.seekp(pos0 * sizeof(Call_911), paste.beg);
+        paste.write((const char *) (&New), sizeof(Call_911));
+
+        paste.seekg(pos0 * sizeof(Call_911), paste.beg);
+        paste.read((char*)(&registros[0]), sizeof(Call_911));
+
+            cout << registros[0].id << endl;
+            cout << registros[0].lat << endl;
+            cout << registros[0].lgn << endl;
+            cout << registros[0].desc << endl;
+            cout << registros[0].zip << endl;
+            cout << registros[0].title << endl;
+            cout << registros[0].timeStamp << endl;
+            cout << registros[0].twp << endl;
+            cout << registros[0].addr << endl;
+            cout << registros[0].e << endl;
+            cout << "- - - - - - - - - - - - " << endl;
+
+    }
+    else
+    {
+        cout << "Erro na leitura do arquivo!";
+    }
+    cout << "sucesso" << endl;
+    paste.close();
+    return;
+}
+*/
+
+void alterarPos(int p1, int p2)
+{
+
+    fstream paste;
+	paste.open("paste.bin", fstream::in | fstream::out | fstream::binary);
+
+    paste.seekg(0, paste.end);
+    int tam = paste.tellg();
+    paste.seekg(0, paste.beg);
+    int numero_registros = tam / sizeof(Call_911);
+
+    Call_911 *registros = new Call_911[1];
+    Call_911 *registros0 = new Call_911[1];
+
+    paste.seekg(p1 * sizeof(Call_911), paste.beg);
+    paste.read((char*)(&registros[0]), sizeof(Call_911));
+    paste.seekg(p2 * sizeof(Call_911), paste.beg);
+    paste.read((char*)(&registros0[0]), sizeof(Call_911));
+
+    registros[0].id = p2;
+    paste.seekp(p2 * sizeof(Call_911), paste.beg);
+    paste.write((const char *) (&registros[0]), sizeof(Call_911));
+
+    registros0[0].id = p1;
+    paste.seekp(p1 * sizeof(Call_911), paste.beg);
+    paste.write((const char *) (&registros0[0]), sizeof(Call_911));
+    
+
+        cout << "TROCANDO" << endl;
+
+        cout << "- - - - - - - - - - - - " << endl;
+        cout << p1 << endl;
+		cout << registros[0].lat << endl;
+		cout << registros[0].lgn << endl;
+		cout << registros[0].desc << endl;
+		cout << registros[0].zip << endl;
+		cout << registros[0].title << endl;
+		cout << registros[0].timeStamp << endl;
+		cout << registros[0].twp << endl;
+		cout << registros[0].addr << endl;
+		cout << registros[0].e << endl;
+		cout << "- - - - - - - - - - - - " << endl;
+
+        cout << "COM" << endl;
+
+        cout << "- - - - - - - - - - - - " << endl;
+        cout << p2 << endl;
+		cout << registros0[0].lat << endl;
+		cout << registros0[0].lgn << endl;
+		cout << registros0[0].desc << endl;
+		cout << registros0[0].zip << endl;
+		cout << registros0[0].title << endl;
+		cout << registros0[0].timeStamp << endl;
+		cout << registros0[0].twp << endl;
+		cout << registros0[0].addr << endl;
+		cout << registros0[0].e << endl;
+		cout << "- - - - - - - - - - - - " << endl;
+
+	paste.close();
+}
+/*
+void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
+{
+    //331740
+    //330000
+
+    fstream paste;
+	paste.open("paste.bin",fstream::in | fstream::out | fstream::binary);
+
+    paste.seekg(0, paste.end);
+    int tam = paste.tellg();
+    paste.seekg(0, paste.beg);
+    int numero_registros = tam / sizeof(Call_911);
+
+    Call_911 *registros = new Call_911[1];
+
+	for ( int i = numero_registros - 1; i >= posicaoInsercao; i-- )
+	{
+		paste.seekg(i * sizeof(Call_911), paste.beg);
+		paste.read((char*)(&registros[0]), sizeof(Call_911));
+		registros[0].id += 1;
+		cout << registros[0].id << endl;
+		cout << registros[0].lat << endl;
+		cout << registros[0].lgn << endl;
+		cout << registros[0].desc << endl;
+		cout << registros[0].zip << endl;
+		cout << registros[0].title << endl;
+		cout << registros[0].timeStamp << endl;
+		cout << registros[0].twp << endl;
+		cout << registros[0].addr << endl;
+		cout << registros[0].e << endl;
+		cout << "- - - - - - - - - - - - " << endl;
+		paste.seekp((i + 1) * sizeof(Call_911), paste.beg);
+		paste.write((const char *) (&registros[0]), sizeof(Call_911));
+	}
+	New.id = posicaoInsercao;
+	paste.seekp(posicaoInsercao * sizeof(Call_911), paste.beg);
+	paste.write((const char *) (&New), sizeof(Call_911));
+
+	paste.close();
+}
+*/
+void deletar(char *file_name, int p_delete)
+{
+    fstream paste;
+	paste.open("paste.bin",fstream::in | fstream::out | fstream::binary);
+
+    if ( paste )
+    {
+        paste.seekg(0, paste.end);
+        int tam = paste.tellg();
+        paste.seekg(0, paste.beg);
+
+        int numero_registros = tam / sizeof(Call_911);
+
+        Call_911 *registros = new Call_911[1];
+
+		paste.seekg(p_delete, paste.beg);
+
+        paste.seekg(p_delete * sizeof(Call_911), paste.beg);
+        paste.read((char*)(&registros[0]), sizeof(Call_911));
+
+            cout << registros[0].id << endl;
+            cout << registros[0].lat << endl;
+            cout << registros[0].lgn << endl;
+            cout << registros[0].desc << endl;
+            cout << registros[0].zip << endl;
+            cout << registros[0].title << endl;
+            cout << registros[0].timeStamp << endl;
+            cout << registros[0].twp << endl;
+            cout << registros[0].addr << endl;
+            cout << registros[0].e << endl;
+            cout << "- - - - - - - - - - - - " << endl;
+
+            registros[0].flag = false;
+        paste.seekp(p_delete * sizeof(Call_911), paste.beg);
+        paste.write((const char *)(&registros), sizeof(Call_911));
+    }
+    else
+    {
+        cout << "Erro na leitura do arquivo!";
+    }
+    cout << "sucesso" << endl;
+    paste.close();
+    return;
+}
