@@ -9,7 +9,6 @@
 
 struct Call_911
 {
-    
     unsigned int id;
     float lat;
     float lgn;

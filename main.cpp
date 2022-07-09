@@ -25,26 +25,34 @@ int main()
             break;
         
         case 2:
-            cout << "Insira a posicao de inicio e o final: ";
+            cout << "Insira a posicao de inicio e o final da leitura: ";
             cin >> posInicio >> posFim;
             lerPos(posInicio,posFim);
             break;
-        case 3:                
+        case 3:
+            cout << "Insira a posicao dos dados que deseja trocar de posicao:";
+            cin >> posInicio >> posFim;     
             alterarPos(posInicio,posFim);
             break;
         case 4:
+            cout << "Insira a posicao em que deseja inserir um novo registro:";
             cin >> posicaoInsercao;
+            cout << "Insira a latitude:";
             cin >> Novo.lat;
+            cout << "Insira a longitude:";
             cin >> Novo.lgn;
             cin.ignore();
+            cout << "Preencha a descricao:";
             getline(cin,palavra);
             while(posCharVet <= int(sizeof(Novo.desc)))
             {
                 Novo.desc[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o zip:";
             cin >> Novo.zip;
             cin.ignore();
+            cout << "Preencha o titulo:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.title)))
@@ -52,6 +60,7 @@ int main()
                 Novo.title[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o timeStemp:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.timeStamp)))
@@ -59,6 +68,7 @@ int main()
                 Novo.timeStamp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o twp:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.twp)))
@@ -66,6 +76,7 @@ int main()
                 Novo.twp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o endereco:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.addr)))
@@ -73,25 +84,32 @@ int main()
                 Novo.addr[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << " Insira o E";
             cin >> Novo.e;
             Novo.flag = true;
 
             inserirNovoRegistro(posicaoInsercao, Novo);
             break;
         case 5:
-            cin >> pos0;
 
+            cout << "Posicao que deseja alterar os dados:";
+            cin >> pos0;
+            cout << "Preencha a nova latitude:";
             cin >> Novo.lat;
+            cout << "Preencha a nova longitude:";
             cin >> Novo.lgn;
             cin.ignore();
+            cout << "Preencha a nova descricao:";
             getline(cin,palavra);
             while(posCharVet <= int(sizeof(Novo.desc)))
             {
                 Novo.desc[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o novo zip:";
             cin >> Novo.zip;
             cin.ignore();
+            cout << "Preencha o novo titulo:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.title)))
@@ -99,6 +117,7 @@ int main()
                 Novo.title[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o novo timeStamp:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.timeStamp)))
@@ -106,6 +125,7 @@ int main()
                 Novo.timeStamp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o novo twp:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.twp)))
@@ -113,6 +133,7 @@ int main()
                 Novo.twp[posCharVet] = palavra[posCharVet];
                 posCharVet++; 
             }
+            cout << "Preencha o novo endereco:";
             getline(cin,palavra);
             posCharVet = 0;
             while(posCharVet <= int(sizeof(Novo.addr)))
@@ -126,6 +147,8 @@ int main()
             alterarDados(pos0, Novo);
             break;
         case 6:
+            cout << "Insira a posicao que deseja excluir: ";
+            cin >> posInicio;
             deletar(posInicio);
 
         case 7:
