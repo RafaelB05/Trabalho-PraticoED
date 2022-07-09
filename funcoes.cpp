@@ -65,7 +65,7 @@ void lerRegistros()
     paste.close();
     return;
 }
-
+// Os dois parametros passados indicam o inicio e fim da leitura
 void lerPos(int p1, int p2)
 {
     ifstream paste;
@@ -169,7 +169,7 @@ void alterarDados(int pos0, Call_911 New)
     paste.close();
 }
 
-
+// Os parametros passados indicam a posicao dos registros que iram ser trocados
 void alterarPos(int p1, int p2)
 {
 
@@ -237,8 +237,7 @@ void alterarPos(int p1, int p2)
 
 void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 {
-    //331740
-    //330000
+
 
     fstream paste;
 	paste.open("paste.bin",fstream::in | fstream::out | fstream::binary);
@@ -255,7 +254,9 @@ void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 
     if (registros[0].flag == true)
     {
-        for ( int i = numero_registros - 1; i >= posicaoInsercao; i-- )
+        //Este trecho seleciona registro a registro
+        //e os movem pra frente até chegar na posição onde ira ser inserido o novo
+        for ( int i = numero_registros - 1; i >= posicaoInsercao; i-- ) 
         {
             paste.seekg(i * sizeof(Call_911), paste.beg);
             paste.read((char*)(&registros[0]), sizeof(Call_911));
@@ -278,7 +279,8 @@ void inserirNovoRegistro(int posicaoInsercao, Call_911 New)
 
 	paste.close();
 }
-
+// Faz a exclusão lógica do dado
+// Atribuindo a sua flag de exclusão o valor falso
 void deletar(int p_delete)
 {
     fstream paste;
