@@ -2,6 +2,19 @@
 
 using namespace std;
 
+void menu()
+{
+    cout << "____________________________________________________________________" << endl;
+    cout << "| (1) Selecione para ler todas as posicoes de uma vez                |" << endl;
+    cout << "| (2) Selecione para ler de uma posicao x ate y                      |" << endl;
+    cout << "| (3) Selecione para trocar dois registros de posicao                |" << endl;
+    cout << "| (4) Selecione para inserir novos registros                         |" << endl;
+    cout << "| (5) Selecione para alterar todos os dados de um registro existente |" << endl;
+    cout << "| (6) Seleciione para deletar um registro do arquivo                 |" << endl;
+    cout << "| (7) Para finalizar a execucao                                      |" << endl;
+    cout << "____________________________________________________________________" << endl;
+}
+
 void lerRegistros()
 {
     ifstream paste;
@@ -47,7 +60,7 @@ void lerRegistros()
     }
     else
     {
-        cout << "Erro na leitura do arquivo!";
+        cout << "Erro na leitura do arquivo!" << endl;
     }
     paste.close();
     return;
@@ -91,7 +104,7 @@ void lerPos(int p1, int p2)
     }
     else
     {
-        cout << "Erro na leitura do arquivo!";
+        cout << "Erro na leitura do arquivo!" << endl;
     }
 	paste.close();
     return;
@@ -146,7 +159,7 @@ void alterarDados(int pos0, Call_911 New)
     }
     else
     {
-        cout << "Erro na leitura do arquivo!";
+        cout << "Erro na leitura do arquivo!" << endl;
     }
     cout << "sucesso" << endl;
     paste.close();
@@ -271,7 +284,7 @@ void deletar(int p_delete)
     }
     else
     {
-        cout << "Erro na leitura do arquivo!";
+        cout << "Erro na leitura do arquivo!" << endl;
     }
     cout << "sucesso" << endl;
     paste.close();

@@ -22,7 +22,7 @@ struct Call_911
     int e;
     bool flag;
 };
-
+void menu();
 void lerRegistros();
 void lerPos(int p1, int p2);
 void alterarDados(int pos0,Call_911 New);
