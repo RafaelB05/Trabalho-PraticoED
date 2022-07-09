@@ -4,131 +4,126 @@ using namespace std;
 
 int main()
 {
-    int p1,p2;
-    char t;
+    int posInicio,posFim;
+    int escolha;
     int posicaoInsercao;
     string palavra;
     Call_911 Novo;
-    int i = 0;
+    int posCharVet = 0;
     int pos0;
 
-
-    cin >> t;
-    if(t == 'a')
+	cin >> escolha;
+	
+    switch (escolha)
+    {
+    case 1:
         lerRegistros();
+        break;
     
-    if(t == 'b')
-    {
-        cin >> p1 >> p2;
-        lerPos(p1,p2);
-    }
+    case 2:
+        cin >> posInicio >> posFim;
+        lerPos(posInicio,posFim);
+    
+    case 3:
+        alterarPos(posInicio,posFim);
 
-    if(t == 'c')
-    {
-        alterarPos(p1,p2);
-    }
-    if (t == 'd')
-    {
+    case 4:
         cin >> posicaoInsercao;
         cin >> Novo.lat;
         cin >> Novo.lgn;
         cin.ignore();
         getline(cin,palavra);
-        while(i <= int(sizeof(Novo.desc)))
+        while(posCharVet <= int(sizeof(Novo.desc)))
         {
-            Novo.desc[i] = palavra[i];
-            i++; 
+            Novo.desc[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         cin >> Novo.zip;
         cin.ignore();
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.title)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.title)))
         {
-            Novo.title[i] = palavra[i];
-            i++; 
+            Novo.title[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.timeStamp)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.timeStamp)))
         {
-            Novo.timeStamp[i] = palavra[i];
-            i++; 
+            Novo.timeStamp[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.twp)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.twp)))
         {
-            Novo.twp[i] = palavra[i];
-            i++; 
+            Novo.twp[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.addr)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.addr)))
         {
-            Novo.addr[i] = palavra[i];
-            i++; 
+            Novo.addr[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         cin >> Novo.e;
         Novo.flag = true;
 
         inserirNovoRegistro(posicaoInsercao, Novo);
-
-    }
-
-    if (t == 'e')
-    {
-
+    case 5:
         cin >> pos0;
 
         cin >> Novo.lat;
         cin >> Novo.lgn;
         cin.ignore();
         getline(cin,palavra);
-        while(i <= int(sizeof(Novo.desc)))
+        while(posCharVet <= int(sizeof(Novo.desc)))
         {
-            Novo.desc[i] = palavra[i];
-            i++; 
+            Novo.desc[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         cin >> Novo.zip;
         cin.ignore();
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.title)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.title)))
         {
-            Novo.title[i] = palavra[i];
-            i++; 
+            Novo.title[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.timeStamp)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.timeStamp)))
         {
-            Novo.timeStamp[i] = palavra[i];
-            i++; 
+            Novo.timeStamp[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.twp)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.twp)))
         {
-            Novo.twp[i] = palavra[i];
-            i++; 
+            Novo.twp[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         getline(cin,palavra);
-        i = 0;
-        while(i <= int(sizeof(Novo.addr)))
+        posCharVet = 0;
+        while(posCharVet <= int(sizeof(Novo.addr)))
         {
-            Novo.addr[i] = palavra[i];
-            i++; 
+            Novo.addr[posCharVet] = palavra[posCharVet];
+            posCharVet++; 
         }
         cin >> Novo.e;
         Novo.flag = true;
 
         alterarDados(pos0, Novo);
-    }
-    
-    
-    if(t == 'r')
-        deletar(p1);
+    case 6:
+        deletar(posInicio);
+
+    default:
+        break;
+    }    
 
     return 0;
 }
