@@ -2,10 +2,10 @@
 
 using namespace std;
 
-void lerRegistros(char *file_name)
+void lerRegistros()
 {
     ifstream paste;
-    paste.open(file_name, ios::binary);
+    paste.open("paste.bin", ios::binary);
 
     if (paste)
     {
@@ -53,10 +53,10 @@ void lerRegistros(char *file_name)
     return;
 }
 
-void lerPos(char *file_name, int p1, int p2)
+void lerPos(int p1, int p2)
 {
     ifstream paste;
-    paste.open(file_name, ios::binary);
+    paste.open("paste.bin", ios::binary);
 
     if ( paste )
     {

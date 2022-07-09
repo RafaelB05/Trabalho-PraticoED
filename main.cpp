@@ -15,12 +15,12 @@ int main()
 
     cin >> t;
     if(t == 'a')
-        lerRegistros(file_name);
+        lerRegistros();
     
     if(t == 'b')
     {
         cin >> p1 >> p2;
-        lerPos(file_name,p1,p2);
+        lerPos(p1,p2);
     }
 
     if(t == 'c')
